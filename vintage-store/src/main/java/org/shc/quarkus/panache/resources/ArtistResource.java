@@ -1,8 +1,10 @@
 package org.shc.quarkus.panache.resources;
 
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.shc.quarkus.jdbc.pojo.Artist;
 import org.shc.quarkus.panache.repository.ArtistRepository;
 
@@ -25,5 +27,14 @@ public class ArtistResource {
     @Path("/{id}")
     public Artist getArtistById(@PathParam("id") Long id) {
         return repository.findById(id);
+    }
+
+    @POST
+    @Transactional
+    public Response save(Artist artist) {
+        return Response
+                .status(201)
+                .entity(artist)
+                .build();
     }
 }
