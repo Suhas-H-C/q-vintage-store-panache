@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="2.0">
+    <entity class="org.shc.quarkus.jdbc.pojo.Artist" name="Artist">
+        <table name="t_artists"/>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="name">
+                <column length="24" nullable="false"/>
+            </basic>
+            <basic name="bio">
+                <column length="4000" nullable="true"/>
+            </basic>
+            <basic name="createdDate">
+                <column name="created_date" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="org.shc.quarkus.jpa.entity.Customer" name="Customer">
+        <table name="t_customers"/>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="firstName">
+                <column name="first_name" nullable="false"/>
+            </basic>
+            <basic name="lastName">
+                <column name="last_name" nullable="false"/>
+            </basic>
+            <basic name="email">
+                <column length="25" nullable="false"/>
+            </basic>
+            <basic name="createdDate">
+                <column name="created_date" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
